@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/deena.jpg' %}" alt="deena - the author of blog" />
+            <h2>Deena Blog</h2>
+        </header>
+        <p>
+            Hello All, i love to focus on Django
+        </p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>
+            My latest Thoughts
+        </h2>
+        <ul>
+            {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+
+    </section>
+
+    <section id="about">
+        <h2>What I Doo</h2>
+        <p>I love explore nature </p>
+        <p>
+            My goal is to no goal be in present and focus on now. I will be always be happy
+        </p>
+    </section>
+{% endblock %}
